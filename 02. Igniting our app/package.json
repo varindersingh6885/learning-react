@@ -2,7 +2,6 @@
   "name": "episode-2-namaste-react",
   "version": "1.0.0",
   "description": "This is for the second episode of namaste react",
-  "main": "App.js",
   "scripts": {
     "test": "jest"
   },
