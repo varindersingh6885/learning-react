@@ -1,0 +1,30 @@
+{
+  "name": "episode-2-namaste-react",
+  "version": "1.0.0",
+  "description": "This is for the second episode of namaste react",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/varindersingh6885/learning-react.git"
+  },
+  "keywords": [],
+  "author": "Varinder Singh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/varindersingh6885/learning-react/issues"
+  },
+  "homepage": "https://github.com/varindersingh6885/learning-react#readme",
+  "devDependencies": {
+    "parcel": "^2.9.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browserslist": [
+    "last 3 versions"
+  ]
+}
