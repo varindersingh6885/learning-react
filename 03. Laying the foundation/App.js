@@ -8,7 +8,7 @@ const Title = () => <h1>this is a title</h1>;
 const HeadingComponent = () => (
   <div id="container">
     <Title />
-    <h1 id="heading">heading in functional component</h1>
+    <h1 id="heading">20 + 10 = {20 + 10}</h1>
   </div>
 );
 
