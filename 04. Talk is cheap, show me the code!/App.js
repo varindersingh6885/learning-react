@@ -1,16 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-// React Element
-const title = <h1>this is a title</h1>;
-
-// React Functional Component
-const HeadingComponent = () => (
-  <div id="container">
-    {title}
-    <h1 id="heading">20 + 10 = {20 + 10}</h1>
-  </div>
-);
+// Initial Requirements for creating food ordering app
+/**
+ * Header
+ *  - Logo
+ *  - Nav Items
+ * Body
+ *  - Search
+ *  - RestaurantContainer
+ *    - RestaurantCard
+ * Footer
+ *  - Copyright disclaimer
+ *  - Links
+ *  - Address
+ *  - Contract
+ */
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
