@@ -1,3 +1,12 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  padding: 5px;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -27,8 +36,29 @@
   padding: 10px;
 }
 
+.restaurant-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .restaurant-card {
   width: 200px;
-  height: 300px;
-  border: 1px solid black;
+  min-height: 250px;
+  padding: 5px;
+  margin: 5px;
+  background-color: #f0f0f0;
+  border: 1px solid #e0e0e0;
+
+}
+
+.restaurant-card:hover {
+  border: 1px solid #cccbcb;
+  box-shadow: 0 0 10px #cccbcb;
+  cursor: pointer;
+}
+
+.restaurant-logo {
+  width: 100%;
+  object-fit: cover;
+  height: 125px;
 }
