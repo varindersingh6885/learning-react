@@ -1408,10 +1408,15 @@ const RestaurantCard = (props) => {
 const Body = () => {
   return (
     <div className="body">
-      <div className="search">Search</div>
+      <div className="search">
+        <label htmlFor="search-res">Search: </label>
+        <input id="search-res" />
+      </div>
       <div className="restaurant-container">
         {restaurants.map((restaurant) => {
-          return <RestaurantCard resData={restaurant} />;
+          return (
+            <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+          );
         })}
       </div>
     </div>
