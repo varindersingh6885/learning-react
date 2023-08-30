@@ -1,15 +1,19 @@
-import { CDN_URL_SWIGGY_IMAGES } from "../utils/constants";
-
-const Shimmer = (props) => {
-  const {
-    name,
-    cuisines,
-    avgRating,
-    costForTwo,
-    cloudinaryImageId,
-    sla: { slaString },
-  } = props?.resData?.info;
-  return <div className="restaurant-card"></div>;
+const Shimmer = () => {
+  return (
+    <div>
+      <div className="shimmer-container">
+        <div className="shimmer-card"></div>
+        <div className="shimmer-card"></div>
+        <div className="shimmer-card"></div>
+        <div className="shimmer-card"></div>
+        <div className="shimmer-card"></div>
+        <div className="shimmer-card"></div>
+        <div className="shimmer-card"></div>
+        <div className="shimmer-card"></div>
+        <div className="shimmer-card"></div>
+      </div>
+    </div>
+  );
 };
 
 export default Shimmer;

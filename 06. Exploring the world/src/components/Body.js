@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
+import Shimmer from "./Shimmer";
 // import { restaurants } from "../utils/mockData";
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -30,25 +31,9 @@ const Body = () => {
     );
   };
 
-  if (isDataLoading) {
-    return (
-      <div>
-        <div className="shimmer-container">
-          <div className="shimmer-card"></div>
-          <div className="shimmer-card"></div>
-          <div className="shimmer-card"></div>
-          <div className="shimmer-card"></div>
-          <div className="shimmer-card"></div>
-          <div className="shimmer-card"></div>
-          <div className="shimmer-card"></div>
-          <div className="shimmer-card"></div>
-          <div className="shimmer-card"></div>
-        </div>
-      </div>
-    );
-  }
-
-  return (
+  return isDataLoading ? (
+    <Shimmer />
+  ) : (
     <div className="body">
       <div className="filter">
         <button

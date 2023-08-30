@@ -90,7 +90,7 @@ body {
   background-size: 1200px 100%;
 }
 
-@-webkit-keyframes shimmer {
+@keyframes shimmer {
   0% {
     background-position: -100% 0;
   }
