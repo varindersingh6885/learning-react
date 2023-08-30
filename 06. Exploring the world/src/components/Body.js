@@ -3,6 +3,7 @@ import RestaurantCard from "./RestaurantCard";
 // import { restaurants } from "../utils/mockData";
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
+  const [isDataLoading, setIsDataLoading] = useState(false);
 
   const fetchRestaurantsData = async () => {
     const data = await fetch(
@@ -10,11 +11,16 @@ const Body = () => {
     );
     const json = await data.json();
     const resList =
-      json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants;
+      json?.data?.cards?.[1]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants ||
+      json?.data?.cards?.[2]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants;
+    setIsDataLoading(false);
     setListOfRestaurants(resList || []);
   };
 
   useEffect(() => {
+    setIsDataLoading(true);
     fetchRestaurantsData();
   }, []);
 
@@ -23,6 +29,24 @@ const Body = () => {
       (restaurants) => restaurants.info.avgRating >= 4
     );
   };
+
+  if (isDataLoading) {
+    return (
+      <div>
+        <div className="shimmer-container">
+          <div className="shimmer-card"></div>
+          <div className="shimmer-card"></div>
+          <div className="shimmer-card"></div>
+          <div className="shimmer-card"></div>
+          <div className="shimmer-card"></div>
+          <div className="shimmer-card"></div>
+          <div className="shimmer-card"></div>
+          <div className="shimmer-card"></div>
+          <div className="shimmer-card"></div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="body">
@@ -37,7 +61,7 @@ const Body = () => {
         </button>
       </div>
       <div className="restaurant-container">
-        {listOfRestaurants.map((restaurant) => {
+        {listOfRestaurants?.map((restaurant) => {
           return (
             <RestaurantCard key={restaurant.info.id} resData={restaurant} />
           );
