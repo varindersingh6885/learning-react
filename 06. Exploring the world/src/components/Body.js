@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
+import NoResults from "./NoResults";
 // import { restaurants } from "../utils/mockData";
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [isDataLoading, setIsDataLoading] = useState(false);
+
+  const [searchText, setSearchText] = useState("");
 
   const fetchRestaurantsData = async () => {
     const data = await fetch(
@@ -18,6 +22,7 @@ const Body = () => {
         ?.restaurants;
     setIsDataLoading(false);
     setListOfRestaurants(resList || []);
+    setFilteredRestaurants(resList || []);
   };
 
   useEffect(() => {
@@ -26,33 +31,60 @@ const Body = () => {
   }, []);
 
   const filterTopRated = () => {
-    return listOfRestaurants.filter(
+    return filteredRestaurants.filter(
       (restaurants) => restaurants.info.avgRating >= 4
     );
   };
 
+  const handleSearchTextChange = (e) => {
+    setSearchText(e.target.value);
+  };
+
+  const filterRestaurants = () => {
+    const filteredRestaurants = listOfRestaurants.filter((restaurant) => {
+      return restaurant?.info?.name
+        .toLowerCase()
+        .includes(searchText.toLowerCase());
+    });
+
+    setFilteredRestaurants(filteredRestaurants);
+  };
+
   return isDataLoading ? (
     <Shimmer />
-  ) : (
+  ) : listOfRestaurants.length ? (
     <div className="body">
       <div className="filter">
+        <div className="search">
+          <input
+            type="text"
+            placeholder="Search Restauraunts"
+            value={searchText}
+            onChange={handleSearchTextChange}
+          />
+          <button className="btn-search" onClick={filterRestaurants}>
+            Search
+          </button>
+        </div>
         <button
           className="filter-btn"
           onClick={() => {
-            setListOfRestaurants(filterTopRated());
+            setFilteredRestaurants(filterTopRated());
           }}
         >
           Top Rated Restaurants
         </button>
       </div>
       <div className="restaurant-container">
-        {listOfRestaurants?.map((restaurant) => {
+        {filteredRestaurants?.map((restaurant) => {
           return (
             <RestaurantCard key={restaurant.info.id} resData={restaurant} />
           );
         })}
       </div>
     </div>
+  ) : (
+    <NoResults message="No restaurants found!" />
   );
 };
 

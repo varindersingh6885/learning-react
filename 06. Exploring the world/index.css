@@ -59,7 +59,10 @@ body {
 }
 
 .filter {
-  margin: 10px;
+  margin: 15px 10px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .filter-btn {
@@ -97,4 +100,26 @@ body {
   100% {
     background-position: 100% 0;
   }
+}
+
+.log-btn {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.search input,
+button {
+  padding: 5px 15px;
+}
+
+.btn-search {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.no-results-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20vh;
 }
