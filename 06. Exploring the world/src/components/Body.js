@@ -52,7 +52,7 @@ const Body = () => {
 
   return isDataLoading ? (
     <Shimmer />
-  ) : listOfRestaurants.length ? (
+  ) : filteredRestaurants.length ? (
     <div className="body">
       <div className="filter">
         <div className="search">
