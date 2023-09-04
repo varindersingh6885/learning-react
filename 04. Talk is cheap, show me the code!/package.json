@@ -1,7 +1,7 @@
 {
   "name": "episode-4-namaste-react",
   "version": "1.0.0",
-  "description": "This is for the second episode of namaste react",
+  "description": "This is 4th episode of namaste react",
   "scripts": {
     "test": "jest",
     "start": "parcel index.html",
