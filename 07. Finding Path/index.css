@@ -45,6 +45,10 @@ body {
   background-color: #f0f0f0;
   border: 1px solid #e0e0e0;
 }
+.restaurant-card * {
+  color: black;
+  text-decoration: none;
+}
 
 .restaurant-card:hover {
   border: 1px solid #cccbcb;
@@ -122,4 +126,15 @@ button {
   justify-content: center;
   align-items: center;
   margin-top: 20vh;
+}
+
+.res-menu {
+  padding: 20px;
+}
+.res-img {
+  height: 250px;
+}
+
+.res-menu-list-container {
+  margin-top: 10px;
 }
