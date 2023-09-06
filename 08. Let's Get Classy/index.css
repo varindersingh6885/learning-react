@@ -138,3 +138,13 @@ button {
 .res-menu-list-container {
   margin-top: 10px;
 }
+
+.user-card {
+  margin: 1rem;
+  background: linear-gradient(to right, #f6f6f6 8%, #f0f0f0 18%, #f6f6f6 33%);
+  padding: 1rem;
+}
+
+.m-1 {
+  margin: 1rem;
+}
