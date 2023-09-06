@@ -1,0 +1,140 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  padding: 5px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+  padding: 0 20px;
+  align-items: center;
+}
+
+.logo {
+  width: 120px;
+}
+
+.nav-items > ul {
+  display: flex;
+  font-size: 18px;
+  list-style-type: none;
+  margin: 0;
+}
+
+.nav-items > ul > li {
+  padding: 10px;
+  margin: 10px;
+}
+
+.restaurant-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.restaurant-card {
+  width: 200px;
+  min-height: 250px;
+  padding: 7px;
+  border-radius: 5px;
+  margin: 5px;
+  background-color: #f0f0f0;
+  border: 1px solid #e0e0e0;
+}
+.restaurant-card * {
+  color: black;
+  text-decoration: none;
+}
+
+.restaurant-card:hover {
+  border: 1px solid #cccbcb;
+  box-shadow: 0 0 10px #cccbcb;
+  cursor: pointer;
+}
+
+.restaurant-logo {
+  width: 100%;
+  object-fit: cover;
+  height: 125px;
+}
+
+.filter {
+  margin: 15px 10px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filter-btn {
+  cursor: pointer;
+  padding: 5px 15px;
+}
+
+.shimmer-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.shimmer-card {
+  width: 200px;
+  min-height: 250px;
+  padding: 7px;
+  border-radius: 5px;
+  margin: 5px;
+  background-color: #f0f0f0;
+  border: 1px solid #e0e0e0;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: shimmer;
+  animation-timing-function: linear;
+  background: #ddd;
+  background: linear-gradient(to right, #f6f6f6 8%, #f0f0f0 18%, #f6f6f6 33%);
+  background-size: 1200px 100%;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+.log-btn {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.search input,
+button {
+  padding: 5px 15px;
+}
+
+.btn-search {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.no-results-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20vh;
+}
+
+.res-menu {
+  padding: 20px;
+}
+.res-img {
+  height: 250px;
+}
+
+.res-menu-list-container {
+  margin-top: 10px;
+}
