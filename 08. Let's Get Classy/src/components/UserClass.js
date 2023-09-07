@@ -3,6 +3,11 @@ import React from "react";
 class UserClass extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      count1: 0,
+      count2: 0,
+    };
   }
 
   render() {
@@ -19,6 +24,18 @@ class UserClass extends React.Component {
           </a>
         </h4>
         <h4>Component Type: {componentType}</h4>
+        <button
+          className="mt-1"
+          onClick={() => this.setState({ count1: this.state.count1 + 1 })}
+        >
+          Count1: {this.state.count1}
+        </button>
+        <button
+          className="ml-1"
+          onClick={() => this.setState({ count2: this.state.count2 + 1 })}
+        >
+          Count2: {this.state.count2}
+        </button>
       </div>
     );
   }

@@ -11,7 +11,7 @@ const About = () => {
 
       <div className="m-1">
         <h3>Team members:</h3>
-        <User name="Varinder" componentType="function based" />
+        <User name="Varinder Singh" componentType="function based" />
         <UserClass name="Varinder Singh" componentType="class based" />
       </div>
     </div>
