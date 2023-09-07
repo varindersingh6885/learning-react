@@ -4,7 +4,7 @@ class UserClass extends React.Component {
   constructor(props) {
     super(props);
 
-    console.log("child constructor");
+    console.log(this.props.name + "child constructor");
 
     this.state = {
       count1: 0,
@@ -13,11 +13,11 @@ class UserClass extends React.Component {
   }
 
   componentDidMount() {
-    console.log("child componentDidMount");
+    console.log(this.props.name + "child componentDidMount");
   }
 
   render() {
-    console.log("child render");
+    console.log(this.props.name + "child render");
     const { name, componentType } = this.props;
 
     return (

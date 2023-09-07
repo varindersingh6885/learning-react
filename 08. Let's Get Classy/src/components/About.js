@@ -25,7 +25,9 @@ class About extends Component {
 
         <div className="m-1">
           <h3>Team members:</h3>
-          <UserClass name="Varinder Singh" componentType="class based" />
+          <UserClass name="first" componentType="class based" />
+          <UserClass name="second" componentType="class based" />
+          {console.log("parent ---->")}
         </div>
       </div>
     );
