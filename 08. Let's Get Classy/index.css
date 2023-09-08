@@ -143,6 +143,15 @@ button {
   margin: 1rem;
   background: linear-gradient(to right, #f6f6f6 8%, #f0f0f0 18%, #f6f6f6 33%);
   padding: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.user-img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  margin-right: 2rem;
 }
 
 .m-1 {

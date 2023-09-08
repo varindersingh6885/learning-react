@@ -1,48 +1,90 @@
 import React from "react";
+import { GITHUB_USER_API } from "../utils/constants";
+
+/**
+ *
+ * Life Cycle
+ *
+ * Mounting:
+ *    Constructor (set dummy data)
+ *    render()
+ *        HTML is rendered
+ *    componentDidMount()
+ *        Api call
+ *        update state -> this.setState(Api data)
+ *
+ *  ---------------------------------------------
+ *
+ * Updating:
+ *    render(with new state data)
+ *    HTML updated with new data
+ *    componentDidUpdate()
+ *
+ * ----------------------------------------------
+ *
+ * Unmount:
+ *    componentWillUnmount()
+ *
+ */
 
 class UserClass extends React.Component {
   constructor(props) {
     super(props);
-
-    console.log(this.props.name + "child constructor");
-
+    console.log("constructor");
     this.state = {
-      count1: 0,
-      count2: 0,
+      userData: {
+        avatar_url: "https://dummy",
+        name: "John Doe",
+        location: "India",
+        html_url: "https://dummy",
+        blog: "https://dummy",
+      },
     };
   }
 
-  componentDidMount() {
-    console.log(this.props.name + "child componentDidMount");
+  async componentDidMount() {
+    console.log("componentDidMount");
+    const data = await fetch(GITHUB_USER_API + this.props.username);
+    const userData = await data.json();
+    this.setState({ userData });
+  }
+
+  componentDidUpdate() {
+    console.log("componentDidUpdate");
+  }
+
+  componentWillUnmount() {
+    console.log("componentWillUnmount");
   }
 
   render() {
-    console.log(this.props.name + "child render");
-    const { name, componentType } = this.props;
-
+    const { username, componentType } = this.props;
+    const { userData } = this.state;
+    console.log("render");
     return (
-      <div className="user-card">
-        <h2>Name: {name}</h2>
-        <h4>Location: Punjab</h4>
-        <h4>
-          Contact:{" "}
-          <a href="mailto:varindersingh6885@gmail.com">
-            varindersingh6885@gmail.com
-          </a>
-        </h4>
-        <h4>Component Type: {componentType}</h4>
-        <button
-          className="mt-1"
-          onClick={() => this.setState({ count1: this.state.count1 + 1 })}
-        >
-          Count1: {this.state.count1}
-        </button>
-        <button
-          className="ml-1"
-          onClick={() => this.setState({ count2: this.state.count2 + 1 })}
-        >
-          Count2: {this.state.count2}
-        </button>
+      <div>
+        {userData && (
+          <div className="user-card">
+            <div>
+              {" "}
+              <img className="user-img" src={userData.avatar_url} />
+            </div>
+            <div>
+              <h2>Name: {userData.name}</h2>
+              <h4>Location: {userData.location}</h4>
+              <h4>
+                Contact:{" "}
+                <a href={userData.blog} target="_blank">
+                  LinkedIn
+                </a>
+                {", "}
+                <a href={userData.html_url} target="_blank">
+                  Github
+                </a>
+              </h4>
+            </div>
+          </div>
+        )}
       </div>
     );
   }
