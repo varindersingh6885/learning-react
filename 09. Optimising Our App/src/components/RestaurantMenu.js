@@ -1,29 +1,13 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
-import {
-  CDN_URL_SWIGGY_IMAGES,
-  RESTAURANTS_DETAILS_API,
-} from "../utils/constants";
+import { CDN_URL_SWIGGY_IMAGES } from "../utils/constants";
 import NoResults from "./NoResults";
+import { useRestaurantMenu } from "../hooks/useRestaurantMenu";
 
 const RestaurantMenu = () => {
-  const [resInfo, setResInfo] = useState(null);
-  const [isResInfoLoading, setIsResInfoLoading] = useState(false);
-
   const { resId } = useParams();
 
-  useEffect(() => {
-    setIsResInfoLoading(true);
-    fetchRestaurantData();
-  }, []);
-
-  const fetchRestaurantData = async () => {
-    const data = await fetch(`${RESTAURANTS_DETAILS_API}${resId}`);
-    const json = await data.json();
-    setResInfo(json.data);
-    setIsResInfoLoading(false);
-  };
+  const { resInfo, isLoading: isResInfoLoading } = useRestaurantMenu(resId);
 
   const {
     name,
