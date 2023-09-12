@@ -1,7 +1,7 @@
 {
-  "name": "episode-8-namaste-react",
+  "name": "episode-9-namaste-react",
   "version": "1.0.0",
-  "description": "This is 8th episode of namaste react",
+  "description": "This is 9th episode of namaste react",
   "scripts": {
     "test": "jest",
     "start": "parcel index.html",
