@@ -13,6 +13,7 @@ body {
   border: 1px solid black;
   padding: 0 20px;
   align-items: center;
+  overflow: auto;
 }
 
 .logo {
