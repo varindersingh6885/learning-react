@@ -121,7 +121,8 @@ button {
   cursor: pointer;
 }
 
-.no-results-container {
+.no-results-container,
+.status-offline-container {
   display: flex;
   justify-content: center;
   align-items: center;

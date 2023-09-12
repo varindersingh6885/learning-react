@@ -4,7 +4,8 @@ import Shimmer from "./Shimmer";
 import NoResults from "./NoResults";
 import { Link } from "react-router-dom";
 import { RESTAURANTS_LIST_API } from "../utils/constants";
-// import { restaurants } from "../utils/mockData";
+import { useOnlineStatus } from "../hooks/useOnlineStatus";
+import StatusOffline from "./StatusOffline";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -12,6 +13,8 @@ const Body = () => {
   const [isDataLoading, setIsDataLoading] = useState(false);
 
   const [searchText, setSearchText] = useState("");
+
+  const onlineStatus = useOnlineStatus();
 
   const fetchRestaurantsData = async () => {
     const data = await fetch(RESTAURANTS_LIST_API);
@@ -50,6 +53,10 @@ const Body = () => {
 
     setFilteredRestaurants(filteredRestaurants);
   };
+
+  if (!onlineStatus) {
+    return <StatusOffline />;
+  }
 
   return isDataLoading ? (
     <Shimmer />
