@@ -62,20 +62,24 @@ const Body = () => {
     <Shimmer />
   ) : filteredRestaurants.length ? (
     <div className="body">
-      <div className="filter">
+      <div className="flex justify-between p-4 mt-2 mb-2">
         <div className="search">
           <input
             type="text"
             placeholder="Search Restauraunts"
+            className="border border-solid p-2 rounded-lg"
             value={searchText}
             onChange={handleSearchTextChange}
           />
-          <button className="btn-search" onClick={filterRestaurants}>
+          <button
+            className="ml-4 mr-4 border p-2 px-4 rounded-lg bg-blue-950 text-white"
+            onClick={filterRestaurants}
+          >
             Search
           </button>
         </div>
         <button
-          className="filter-btn"
+          className="mx-4 border p-2 px-4 rounded-lg bg-black text-white"
           onClick={() => {
             setFilteredRestaurants(filterTopRated());
           }}
@@ -83,7 +87,7 @@ const Body = () => {
           Top Rated Restaurants
         </button>
       </div>
-      <div className="restaurant-container">
+      <div className="p-4 flex flex-wrap">
         {filteredRestaurants?.map((restaurant) => {
           return (
             <Link

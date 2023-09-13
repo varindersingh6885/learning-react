@@ -20,29 +20,29 @@ const Header = () => {
   }, [btnName]);
 
   return (
-    <div className="header">
-      <div className="logo-container">
-        <img className="logo" src={LOGO_URL} alt="logo" />
+    <div className="flex justify-between shadow-md items-center mb-4 p-2">
+      <div className="w-24">
+        <img src={LOGO_URL} alt="logo" />
       </div>
-      <div className="nav-items">
-        <ul>
-          <li>
+      <div>
+        <ul className="flex">
+          <li className="m-4">
             <p>Online status: {onlineStatus ? "🟢" : "🔴"}</p>
           </li>
-          <li>
+          <li className="m-4">
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li className="m-4">
             <Link to="/about">About Us</Link>
           </li>
-          <li>
+          <li className="m-4">
             <Link to="contact">Contact Us</Link>
           </li>
-          <li>Cart</li>
-          <li>
+          <li className="m-4">Cart</li>
+          <li className="m-4">
             <Link to="grocery">Grocery</Link>
           </li>
-          <li>
+          <li className="m-4">
             <button onClick={changeBtnName} className="log-btn">
               {btnName}
             </button>

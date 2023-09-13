@@ -64,21 +64,32 @@ class UserClass extends React.Component {
     return (
       <div>
         {userData && (
-          <div className="user-card">
+          <div className="flex items-center p-4 border my-2 rounded-lg">
             <div>
               {" "}
-              <img className="user-img" src={userData.avatar_url} />
+              <img
+                className="w-28 rounded-full m-2"
+                src={userData.avatar_url}
+              />
             </div>
-            <div>
-              <h2>Name: {userData.name}</h2>
-              <h4>Location: {userData.location}</h4>
-              <h4>
+            <div className="px-4">
+              <h2 className="my-1">Name: {userData.name}</h2>
+              <h4 className="my-1">Location: {userData.location}</h4>
+              <h4 className="my-1">
                 Contact:{" "}
-                <a href={userData.blog} target="_blank">
+                <a
+                  href={userData.blog}
+                  target="_blank"
+                  className="underline text-blue-600 cursor-pointer"
+                >
                   LinkedIn
                 </a>
                 {", "}
-                <a href={userData.html_url} target="_blank">
+                <a
+                  href={userData.html_url}
+                  target="_blank"
+                  className="underline text-blue-600 cursor-pointer"
+                >
                   Github
                 </a>
               </h4>
