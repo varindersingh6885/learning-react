@@ -11,3 +11,6 @@ export const RESTAURANTS_DETAILS_API =
   "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.7040592&lng=77.10249019999999&restaurantId=";
 
 export const GITHUB_USER_API = "https://api.github.com/users/";
+
+export const CDN_URL_SWIGGY_IMAGES_RESTAURANT_ITEMS =
+  "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/";
