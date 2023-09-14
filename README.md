@@ -1,3 +1,7 @@
+# Demo
+
+<a href="https://eatup-varindersingh6885.netlify.app/" target="blank">Project demo link</a>
+
 # Learning React
 
 # Food App requirements
