@@ -9,9 +9,10 @@ const RestaurantCard = (props) => {
     cloudinaryImageId,
     sla: { slaString },
   } = props?.resData?.info;
+
   return (
     <div className="h-full py-2">
-      <div className="w-[200px] h-full p-2 rounded-md shadow-md m-2 bg-gray-100 hover:bg-gray-200">
+      <div className="w-[200px] h-full p-2 rounded-md shadow-md mx-2 border border-gray-200 bg-gray-100 hover:bg-gray-200">
         <img
           className=" w-full rounded-t-lg h-32"
           src={`${CDN_URL_SWIGGY_IMAGES}/${cloudinaryImageId}`}
@@ -25,6 +26,19 @@ const RestaurantCard = (props) => {
       </div>
     </div>
   );
+};
+
+export const withPromotedLabel = (RestaurantCard) => {
+  return (props) => {
+    return (
+      <div className="relative h-full">
+        <label className="absolute  my-4 mx-2 px-2 py-1 rounded-r-md bg-black text-white ">
+          Promoted
+        </label>
+        <RestaurantCard {...props} />
+      </div>
+    );
+  };
 };
 
 export default RestaurantCard;
