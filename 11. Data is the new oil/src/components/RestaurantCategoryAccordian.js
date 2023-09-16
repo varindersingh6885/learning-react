@@ -1,4 +1,3 @@
-import { useState } from "react";
 import RestaurantCategoryItem from "./RestaurantCategoryItem";
 
 const RestaurantCategoryAccordian = (props) => {
@@ -19,7 +18,12 @@ const RestaurantCategoryAccordian = (props) => {
       )}
       {showItems &&
         categoryData?.itemCards?.map((item) => {
-          return <RestaurantCategoryItem itemData={item?.card?.info} />;
+          return (
+            <RestaurantCategoryItem
+              key={item?.card?.info?.id}
+              itemData={item?.card?.info}
+            />
+          );
         })}
     </div>
   );

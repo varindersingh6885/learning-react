@@ -1,10 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { LOGO_URL } from "../utils/constants";
 import { useOnlineStatus } from "../hooks/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
+
+  const userData = useContext(UserContext);
 
   const changeBtnName = () => {
     setBtnName((prevValue) => (prevValue === "Login" ? "Logout" : "Login"));
@@ -20,7 +23,7 @@ const Header = () => {
   }, [btnName]);
 
   return (
-    <div className="flex justify-between shadow-md items-center mb-4 p-2">
+    <div className="flex justify-between shadow-md items-center mb-4 p-2 w-full overflow-auto">
       <div className="w-24">
         <img src={LOGO_URL} alt="logo" />
       </div>
@@ -41,6 +44,9 @@ const Header = () => {
           <li className="m-4">Cart</li>
           <li className="m-4">
             <Link to="grocery">Grocery</Link>
+          </li>
+          <li className="m-4 font-semibold">
+            <Link to="grocery">Hi, {userData?.user?.name}</Link>
           </li>
           <li className="m-4">
             <button onClick={changeBtnName} className="log-btn">
