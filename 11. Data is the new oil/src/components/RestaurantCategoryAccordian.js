@@ -2,20 +2,20 @@ import { useState } from "react";
 import RestaurantCategoryItem from "./RestaurantCategoryItem";
 
 const RestaurantCategoryAccordian = (props) => {
-  const { categoryData } = props;
-  const [showItems, setShowItems] = useState(false);
+  const { categoryData, showItems, updateShowCategoryIndex } = props;
   return (
-    <div className="w-6/12 m-auto p-4 my-4 border border-gray-200 shadow-md">
-      <div className="flex justify-between">
+    <div className="w-6/12 m-auto my-4 border border-gray-200 shadow-md">
+      <div
+        className="flex justify-between cursor-pointer p-4"
+        onClick={updateShowCategoryIndex}
+      >
         <span className="font-semibold">
           {categoryData?.title} {`(${categoryData?.itemCards?.length})`}
         </span>
-        <button onClick={() => setShowItems(!showItems)}>
-          {showItems ? "⬆" : "⬇"}
-        </button>
+        <button>{showItems ? "⬆" : "⬇"}</button>
       </div>
       {showItems && categoryData?.itemCards?.length && (
-        <div className="border-b-4 mt-4 border-gray-600"></div>
+        <div className="border-b-4 mx-2 border-gray-600"></div>
       )}
       {showItems &&
         categoryData?.itemCards?.map((item) => {

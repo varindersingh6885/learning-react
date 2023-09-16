@@ -26,7 +26,7 @@ const RestaurantCategoryItem = (props) => {
         />
         <div className="absolute bottom-0 left-0 text-center w-full px-2">
           <button className="px-4 py-1 bg-white text-green-500 rounded-lg shadow-sm border">
-            + ADD
+            ADD
           </button>
         </div>
       </div>

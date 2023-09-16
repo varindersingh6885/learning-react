@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
 import { CDN_URL_SWIGGY_IMAGES } from "../utils/constants";
@@ -9,6 +10,7 @@ const RestaurantMenu = () => {
   const { resId } = useParams();
 
   const { resInfo, isLoading: isResInfoLoading } = useRestaurantMenu(resId);
+  const [showCategoryIndex, setShowCategoryIndex] = useState(0);
 
   const { name, cloudinaryImageId, cuisines, costForTwoMessage, avgRating } =
     resInfo?.cards?.[0]?.card?.card?.info || {};
@@ -22,6 +24,12 @@ const RestaurantMenu = () => {
         );
       }
     ) || [];
+
+  const handleShowCategory = (categoryIndex) => {
+    setShowCategoryIndex(
+      categoryIndex !== showCategoryIndex ? categoryIndex : -1
+    );
+  };
 
   return isResInfoLoading ? (
     <Shimmer />
@@ -44,11 +52,13 @@ const RestaurantMenu = () => {
       </div>
 
       <div>
-        {categories?.map((category) => {
+        {categories?.map((category, categoryIndex) => {
           return (
             <RestaurantCategoryAccordian
               key={category?.card?.card?.title}
               categoryData={category?.card?.card}
+              showItems={showCategoryIndex === categoryIndex}
+              updateShowCategoryIndex={() => handleShowCategory(categoryIndex)}
             />
           );
         })}
