@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import NoResults from "./NoResults";
@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { RESTAURANTS_LIST_API } from "../utils/constants";
 import { useOnlineStatus } from "../hooks/useOnlineStatus";
 import StatusOffline from "./StatusOffline";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -17,6 +18,7 @@ const Body = () => {
   const onlineStatus = useOnlineStatus();
 
   const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
+  const userData = useContext(UserContext);
 
   const fetchRestaurantsData = async () => {
     const data = await fetch(RESTAURANTS_LIST_API);
@@ -88,6 +90,25 @@ const Body = () => {
         >
           Top Rated Restaurants
         </button>
+      </div>
+      <div className="m-4">
+        <div className="flex flex-wrap">
+          <label
+            className="w-full mb-1"
+            title="Update username under userContext"
+          >
+            Username:{" "}
+          </label>
+          <input
+            type="text"
+            placeholder="Enter username"
+            className="border border-solid p-2 rounded-lg"
+            value={userData?.user?.name}
+            onChange={(e) => {
+              userData?.updateUserContext({ name: e.target.value });
+            }}
+          />
+        </div>
       </div>
       <div className="p-4 flex flex-wrap">
         {filteredRestaurants?.map((restaurant) => {

@@ -25,6 +25,7 @@ const AppLayout = () => {
     <UserContext.Provider
       value={{
         user,
+        updateUserContext: setUser,
       }}
     >
       <div className="app">
