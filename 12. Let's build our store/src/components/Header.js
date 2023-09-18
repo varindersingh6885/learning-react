@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { LOGO_URL } from "../utils/constants";
 import { useOnlineStatus } from "../hooks/useOnlineStatus";
 import UserContext from "../utils/UserContext";
@@ -14,6 +15,8 @@ const Header = () => {
   };
 
   const onlineStatus = useOnlineStatus();
+
+  const cartItems = useSelector((store) => store.cart.items);
 
   // if no dependency array then useEffect is called on every render
   // if dependency array is empty = [] then useEffect is just called once on initial render
@@ -41,7 +44,7 @@ const Header = () => {
           <li className="m-4">
             <Link to="contact">Contact Us</Link>
           </li>
-          <li className="m-4">Cart</li>
+          <li className="m-4">Cart {`(${cartItems?.length})`}</li>
           <li className="m-4">
             <Link to="grocery">Grocery</Link>
           </li>
