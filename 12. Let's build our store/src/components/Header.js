@@ -44,7 +44,9 @@ const Header = () => {
           <li className="m-4">
             <Link to="contact">Contact Us</Link>
           </li>
-          <li className="m-4">Cart {`(${cartItems?.length})`}</li>
+          <li className="m-4">
+            <Link to="cart">Cart {`(${cartItems?.length})`}</Link>
+          </li>
           <li className="m-4">
             <Link to="grocery">Grocery</Link>
           </li>

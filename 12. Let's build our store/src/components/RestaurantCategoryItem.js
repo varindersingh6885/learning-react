@@ -1,6 +1,14 @@
+import { useDispatch } from "react-redux";
+import { addItem } from "../redux-store/slices/cartSlice";
 import { CDN_URL_SWIGGY_IMAGES_RESTAURANT_ITEMS } from "../utils/constants";
 
 const RestaurantCategoryItem = (props) => {
+  const dispatch = useDispatch();
+
+  const addItemToCart = () => {
+    dispatch(addItem(props?.itemData));
+  };
+
   return (
     <div className="flex justify-between items-center border-b-2 py-2">
       <div className="p-2 w-9/12">
@@ -25,7 +33,10 @@ const RestaurantCategoryItem = (props) => {
           alt="img-item"
         />
         <div className="absolute bottom-0 left-0 text-center w-full px-2">
-          <button className="px-4 py-1 bg-white text-green-500 rounded-lg shadow-sm border">
+          <button
+            className="px-4 py-1 bg-white text-green-500 rounded-lg shadow-sm border"
+            onClick={addItemToCart}
+          >
             ADD
           </button>
         </div>

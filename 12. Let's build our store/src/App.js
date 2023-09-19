@@ -8,6 +8,7 @@ import Body from "./components/Body";
 import Contact from "./components/Contact";
 import NotFound from "./components/NotFound";
 import RestaurantMenu from "./components/RestaurantMenu";
+import Cart from "./components/Cart";
 import UserContext from "./utils/UserContext";
 import { appStore } from "./redux-store/appStore";
 
@@ -72,6 +73,10 @@ const appRouter = createBrowserRouter([
             <Grocery />,
           </Suspense>
         ),
+      },
+      {
+        path: "cart",
+        element: <Cart />,
       },
     ],
     errorElement: <NotFound />,
