@@ -27,3 +27,11 @@ test("Should render Submit button", () => {
 
   expect(submitButton).toBeInTheDocument();
 });
+
+test("Should render 2 text inputs", () => {
+  render(<Contact />);
+
+  const textInputs = screen.getAllByRole("textbox");
+
+  expect(textInputs.length).toBe(2);
+});
