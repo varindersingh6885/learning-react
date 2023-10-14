@@ -1336,3 +1336,100 @@ export const restaurants = [
     widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
   },
 ];
+
+export const MOCK_RESTAURANT_DATA = {
+  info: {
+    id: "302699",
+    name: "Barbeque Nation",
+    cloudinaryImageId: "qzqeafcmayvxggjgj7rf",
+    locality: "Ulsoor",
+    areaName: "Ulsoor",
+    costForTwo: "₹600 for two",
+    cuisines: [
+      "North Indian",
+      "Barbecue",
+      "Biryani",
+      "Kebabs",
+      "Mughlai",
+      "Desserts",
+    ],
+    avgRating: 4,
+    feeDetails: {
+      restaurantId: "302699",
+      fees: [
+        {
+          name: "BASE_DISTANCE",
+          fee: 5000,
+        },
+        {
+          name: "BASE_TIME",
+        },
+        {
+          name: "ANCILLARY_SURGE_FEE",
+        },
+      ],
+      totalFee: 5000,
+    },
+    parentId: "2438",
+    avgRatingString: "4.0",
+    totalRatingsString: "500+",
+    sla: {
+      deliveryTime: 35,
+      lastMileTravel: 4.8,
+      serviceability: "SERVICEABLE",
+      slaString: "35 mins",
+      lastMileTravelString: "4.8 km",
+      iconType: "ICON_TYPE_EMPTY",
+    },
+    availability: {
+      nextCloseTime: "2023-10-14 23:30:00",
+      opened: true,
+    },
+    badges: {
+      imageBadges: [
+        {
+          imageId: "newg.png",
+          description: "Gourmet",
+        },
+      ],
+    },
+    isOpen: true,
+    type: "F",
+    badgesV2: {
+      entityBadges: {
+        imageBased: {
+          badgeObject: [
+            {
+              attributes: {
+                description: "Gourmet",
+                imageId: "newg.png",
+              },
+            },
+          ],
+        },
+        textBased: {},
+        textExtendedBadges: {},
+      },
+    },
+    aggregatedDiscountInfoV3: {
+      header: "40% OFF",
+      subHeader: "UPTO ₹80",
+    },
+    differentiatedUi: {
+      displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+      differentiatedUiMediaDetails: {
+        mediaType: "ADS_MEDIA_ENUM_IMAGE",
+        lottie: {},
+        video: {},
+      },
+    },
+    reviewsSummary: {},
+    displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+    restaurantOfferPresentationInfo: {},
+  },
+  analytics: {},
+  cta: {
+    link: "https://www.swiggy.com/restaurants/barbeque-nation-ulsoor-bangalore-302699",
+    type: "WEBLINK",
+  },
+};
