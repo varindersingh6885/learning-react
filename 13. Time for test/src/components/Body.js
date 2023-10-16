@@ -70,6 +70,7 @@ const Body = () => {
         <div className="search">
           <input
             type="text"
+            data-testid="searchInput"
             placeholder="Search Restauraunts"
             className="border border-solid p-2 rounded-lg"
             value={searchText}
