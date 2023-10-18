@@ -6,6 +6,7 @@ const RestaurantCategoryAccordian = (props) => {
     <div className="w-6/12 m-auto my-4 border border-gray-200 shadow-md">
       <div
         className="flex justify-between cursor-pointer p-4"
+        data-testid="restaurant-category-accordian"
         onClick={updateShowCategoryIndex}
       >
         <span className="font-semibold">

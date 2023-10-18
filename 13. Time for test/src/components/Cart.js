@@ -30,8 +30,10 @@ const Cart = () => {
           <h2>Cart is empty. Please add new items.</h2>
         </div>
       )}
-      {cartItems.map((item) => {
-        return <RestaurantCategoryItem key={item?.id} itemData={item} />;
+      {cartItems.map((item, index) => {
+        return (
+          <RestaurantCategoryItem key={item?.id + index} itemData={item} />
+        );
       })}
     </div>
   );

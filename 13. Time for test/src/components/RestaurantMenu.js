@@ -10,7 +10,7 @@ const RestaurantMenu = () => {
   const { resId } = useParams();
 
   const { resInfo, isLoading: isResInfoLoading } = useRestaurantMenu(resId);
-  const [showCategoryIndex, setShowCategoryIndex] = useState(0);
+  const [showCategoryIndex, setShowCategoryIndex] = useState(-1);
 
   const { name, cloudinaryImageId, cuisines, costForTwoMessage, avgRating } =
     resInfo?.cards?.[0]?.card?.card?.info || {};

@@ -59,4 +59,26 @@ describe("Body Component testcases", () => {
 
     expect(resCardsAfterSearch.length).toBe(3);
   });
+
+  test("Should filter top rated restaurants", async () => {
+    await act(async () =>
+      render(
+        <BrowserRouter>
+          <Body />
+        </BrowserRouter>
+      )
+    );
+
+    const topRatedButton = screen.getByRole("button", {
+      name: /top rated restaurants/i,
+    });
+
+    const resCardsBeforeFilter = screen.getAllByTestId("resCard");
+    expect(resCardsBeforeFilter.length).toBe(20);
+
+    fireEvent.click(topRatedButton);
+
+    const resCardsAfterFilter = screen.getAllByTestId("resCard");
+    expect(resCardsAfterFilter.length).toBe(19);
+  });
 });
